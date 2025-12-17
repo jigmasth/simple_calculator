@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eaeaea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .cal {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 220px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            height: 40px;
+            font-size: 18px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 45px;
+            height: 40px;
+            margin: 3px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="cal">
+    <input type="text" id="screen" disabled>
+
+    <br>
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button onclick="press('+')">+</button>
+
+    <br>
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button onclick="press('-')">-</button>
+
+    <br>
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button onclick="press('*')">*</button>
+
+    <br>
+    <button onclick="clearScreen()">C</button>
+    <button onclick="press('0')">0</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="press('/')">/</button>
+</div>
+
+<script>
+    function press(value) {
+        document.getElementById("screen").value += value;
+    }
+
+    function clearScreen() {
+        document.getElementById("screen").value = "";
+    }
+
+    function calculate() {
+        let exp = document.getElementById("screen").value;
+        document.getElementById("screen").value = eval(exp);
+    }
+</script>
+
+</body>
+</html>
